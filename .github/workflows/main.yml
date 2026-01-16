@@ -19,7 +19,6 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v4
         with:
-          args: --acl private --follow-symlinks --delete
           role-to-assume: arn:aws:iam::331208495817:role/portfolio-workflows
           aws-region: us-east-1
 
