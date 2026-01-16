@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nader Abi Younes - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'SF Pro Display', -apple-system, sans-serif;
+            line-height: 1.6;
+            color: #e0e0e0;
+            background: #0a0a0a;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 255, 157, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(0, 157, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(0, 255, 157, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #e0e0e0;
+            padding: 0.7rem 1.5rem;
+            margin: 0 0.3rem;
+            border: 1px solid transparent;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        nav a:hover {
+            border-color: #00ff9d;
+            color: #00ff9d;
+            background: rgba(0, 255, 157, 0.05);
+        }
+
+        nav a.active {
+            border-color: #00ff9d;
+            color: #0a0a0a;
+            background: #00ff9d;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: left;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-content .label {
+            color: #00ff9d;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #00ff9d 0%, #009dff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.8rem;
+            color: #b0b0b0;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero-content .view-counter {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: rgba(0, 255, 157, 0.1);
+            border: 1px solid rgba(0, 255, 157, 0.3);
+            border-radius: 50px;
+            color: #00ff9d;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-label {
+            color: #00ff9d;
+            font-size: 0.9rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #ffffff;
+            font-weight: 700;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .profile-section {
+            position: sticky;
+            top: 120px;
+        }
+
+        .profile-image {
+            width: 82%;
+            aspect-ratio: 1;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #00ff9d 0%, #009dff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 20px 60px rgba(0, 255, 157, 0.3);
+        }
+
+        .profile-pic {
+            border-radius: 20px;
+        }
+
+        .about-text p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #b0b0b0;
+        }
+
+        .experience-item, .education-item {
+            padding: 2.5rem 0;
+            border-left: 2px solid rgba(0, 255, 157, 0.2);
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .experience-item::before, .education-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 2.5rem;
+            width: 10px;
+            height: 10px;
+            background: #00ff9d;
+            border-radius: 50%;
+            box-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+        }
+
+        .experience-item:hover, .education-item:hover {
+            border-left-color: #00ff9d;
+        }
+
+        .experience-item h3, .education-item h3 {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .date, .education-item .date {
+            color: #00ff9d;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .experience-item p, .education-item p {
+            color: #b0b0b0;
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .experience-item ul, .education-item ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .experience-item li, .education-item li {
+            color: #b0b0b0;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .experience-item li::before, .education-item li::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: #00ff9d;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 255, 157, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            color: #00ff9d;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #b0b0b0;
+            font-size: 1rem;
+        }
+
+        .skill-category li:last-child {
+            border-bottom: none;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #00ff9d, #009dff);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 255, 157, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .project-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .project-card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .project-card p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tech-tag {
+            background: rgba(0, 255, 157, 0.1);
+            color: #00ff9d;
+            padding: 0.4rem 1rem;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 255, 157, 0.2);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(0, 255, 157, 0.1);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 255, 157, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-item a {
+            color: #00ff9d;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #00ccff;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background: #00ff9d;
+            color: #0a0a0a;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 10px 30px rgba(0, 255, 157, 0.4);
+        }
+
+        #backToTop.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        #backToTop:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 255, 157, 0.6);
+        }
+
+        footer {
+            background: rgba(10, 10, 10, 0.95);
+            color: #b0b0b0;
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(0, 255, 157, 0.1);
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .profile-section {
+                position: static;
+            }
+
+            .profile-image {
+                max-width: 250px;
+                margin: 0 auto 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
+
+            section {
+                padding: 4rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="label"></div>
+            <h1>Nader Abi Younes</h1>
+            <p class="subtitle">Building digital infrastructure and securing the future</p>
+            <div class="view-counter">
+                <span id="counter">Loading...</span> visitors
+            </div>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="section-label">Get to know me</div>
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="profile-section">
+                <div class="profile-image"><img class="profile-pic" src="profilepic.jpg" alt="Nader Abi Younes" width="250" height="333"></div>
+            </div>
+            <div class="about-text">
+                <p>I am passionate about cloud computing and cybersecurity, and I am deeply committed to making the digital world a safer place for everyone. I began my journey at Northwest Vista College studying cybersecurity, later transitioning into cloud computing as my interests evolved. Today, I continue to sharpen my skills by building and maintaining my homelab using Proxmox and a Raspberry Pi 5, constantly experimenting and learning wherever I can.</p>
+                <p>My path into technology started with freeCodeCamp’s HTML course. I fell in love with it immediately and knew I wanted to learn more. What began as basic HTML knowledge quickly grew into something much bigger. From knowing only HTML, I went on to earn my first certification — CompTIA Security+ thanks to Northwest Vista. That achievement gave me the confidence to believe I could succeed in this field, even when I still had so much to learn. Since then, I’ve earned several more certifications and have enjoyed every step of my journey in the field.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="section-label">Career Journey</div>
+        <h2>Work Experience</h2>
+        
+        <div class="experience-item">
+            <h3>IT Intern</h3>
+            <div class="date">Northwest Vista | Sept 2025 - Dec 2025</div>
+            <p>Kept the datacenter and networking lab up for students to learn</p>
+            <ul>
+                <li>Designed the datacenter for use for students so they can have a environment to learn with</li>
+                <li>Upgraded legacy software on routers and switches to their up-to-date verison</li>
+                <li>Created CTF challeneges for highschool students and presented the cybersecurity tools needed to solve them</li>
+                <li>Tutored students with their Linux and networking homework while also assiting professors with lectures</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="section-label">Technical Expertise</div>
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>IT</h3>
+                <ul>
+                    <li>Linux / Windows</li>
+                    <li>Cisco Networking</li>
+                    <li>Proxmox / Raspberry Pi 5</li>
+                    <li>Java / C++</li>
+                    <li>Cabling / Hardware</li>
+                    <li>HTML5 / CSS3 </li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Cloud</h3>
+                <ul>
+                    <li>S3 / EC2 / IAM / VPC</li>
+                    <li>RDS / Aurora / DynamoDB</li>
+                    <li>Serverless Architecture</li>
+                    <li>Microservices Architecture</li>
+                    <li>CloudWatch / CloudTrail</li>
+                    <li>API Gateway / Step Functions</li>
+                </ul>
+            </div>
+
+            <div class="skill-category">
+                <h3>Cybersecurity</h3>
+                <ul>
+                    <li>Secure Architecture</li>
+                    <li>Encryption</li>
+                    <li>Firewalls</li>
+                    <li>Hardening Systems</li>
+                    <li>Wireshark / Packet Crafting</li>
+                    <li>Network Security Control</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="section-label">Featured Work</div>
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>Proxmox Homelab</h3>
+                <p>Deployed and experimented with Proxmox to build vulnerable environments for penetration testing and multi-VM deployments, simulating real-world enterprise user administration, privilege management, and attack scenarios.</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Proxmox</span>
+                    <span class="tech-tag">Linux CLI</span>
+                    <span class="tech-tag">User Management</span>
+                    <span class="tech-tag">Active Directory</span>
+                    <span class="tech-tag">Virtual Machines</span>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Custom Ad Blocker</h3>
+                <p>I used specialized software on my Raspberry pi to configure my ad blocker. I also use tailscale to connect to it so I can use it when I am not in the same network</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">Tailscale VPN</span>
+                    <span class="tech-tag">Raspberry Pi 5</span>
+                    <span class="tech-tag">ISP Configuration</span>
+                    <span class="tech-tag">Linux</span>
+                    <span class="tech-tag">Pi-hole</span>
+
+                </div>
+            </div>
+
+            <div class="project-card">
+                <h3>Portfolio Webiste</h3>
+                <p>I made this profolio website to show the world who I am and skills. I used AWS to host the website and keep track of the visitors</p>
+                <div class="tech-stack">
+                    <span class="tech-tag">S3</span>
+                    <span class="tech-tag">Lambda</span>
+                    <span class="tech-tag">DynamoDB</span>
+                    <span class="tech-tag">CloudFront</span>
+                    <span class="tech-tag">HTML CSS</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <div class="section-label">Academic Background</div>
+        <h2>Education</h2>
+        
+        <div class="education-item">
+            <h3>Bachelor of Applied Technology in Cloud Computing</h3>
+            <div class="date">Northwest Vista College | 2023 - 2026</div>
+            <p>Current GPA: 3.8/4.0. Focused on cloud computing technologies, including virtualized infrastructure, Linux administration, networking, scripting, and cloud security fundamentals. Developed hands-on skills through lab-based coursework and cloud projects emphasizing deployment, monitoring, and system security. Active member of cloud computing, cybersecurity, and networking clubs.</p>
+        </div>
+
+        <div class="education-item">
+            <h3>Professional Certifications</h3>
+            <div class="date">2019 - Present</div>
+            <ul>
+                <li>AWS Certified Solutions Architect - Associate</li>
+                <li>CompTIA Security+</li>
+                <li>CompTIA Networking+</li>
+                <li>CompTIA Tech+</li>
+                <li>AWS Cloud Practitioner</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="section-label">Let's Connect</div>
+        <h2>Get In Touch</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>📧 Email</h3>
+                <a href="mailto:naderabiyounes001@gmail.com">naderabiyounes001<br>@gmail.com</a>
+            </div>
+
+            <div class="contact-item">
+                <h3>💼 LinkedIn</h3>
+                <a href="https://www.linkedin.com/in/naderabiyounes/" target="_blank">inkedin.com/in/naderabiyounes</a>
+            </div>
+
+            <div class="contact-item">
+                <h3>🐙 GitHub</h3>
+                <a href="https://github.com/NaderAY001" target="_blank">github.com/NaderAY001</a>
+            </div>
+
+            <div class="contact-item">
+                <h3>📱 Phone</h3>
+                <a href="tel:+1234567890">+1 (210)-788-8701</a>
+            </div>
+        </div>
+    </section>
+
+    <div id="backToTop">↑</div>
+
+    <footer>
+        <p>&copy; 2026 Nader Abi Younes.</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", async function() {
+            // Counter logic
+            const counter = document.querySelector("#counter");
+            if (counter) {
+                try {
+                    let response = await fetch("https://7ekmd7odxg324cz74g6rf3uot40skbhp.lambda-url.us-east-1.on.aws/");
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    let data = await response.json();
+                    console.log('Fetched data:', data);
+                    counter.innerHTML = `${data.views || data}`;
+                } catch (error) {
+                    console.error('Failed to fetch data:', error);
+                    counter.innerHTML = 'N/A';
+                }
+            }
+
+            // Smooth scrolling
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('visible');
+                } else {
+                    backToTop.classList.remove('visible');
+                }
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Navigation scroll effect
+            const nav = document.querySelector('nav');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) {
+                    nav.style.background = 'rgba(10, 10, 10, 0.95)';
+                    nav.style.borderBottom = '1px solid rgba(0, 255, 157, 0.3)';
+                } else {
+                    nav.style.background = 'rgba(10, 10, 10, 0.9)';
+                    nav.style.borderBottom = '1px solid rgba(0, 255, 157, 0.1)';
+                }
+            });
+
+            // Add active class to navigation
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('nav a');
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    const sectionHeight = section.clientHeight;
+                    if (window.pageYOffset >= sectionTop - 200) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').substring(1) === current) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
