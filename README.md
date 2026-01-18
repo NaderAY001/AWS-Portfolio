@@ -1,6 +1,8 @@
 # AWS Portfolio 
 I built and deployed a personal portfolio website hosted on AWS and accessible globally. 
-This project showcases my experience with AWS core services, security best practices, and CI/CD automation.
+This project showcases my experience with AWS core services, security best practices, and CI/CD automation. Here is the link to
+my [portfolio](https://portfolio.naderay.tech/)
+
 
 # Frontend
 The frontend was initially generated using Claude Code to create the HTML, CSS, and JavaScript.
