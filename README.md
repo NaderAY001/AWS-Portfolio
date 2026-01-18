@@ -19,3 +19,6 @@ credentials in Github.
 This project taught me a lot about topics that I thought I wouldn't have trouble with. One of them being how DNS works and DNS propogation. Along with that I learned how much 
 goes into DNS and the options I have with my domain registar. IAM was also particularly tricky and I learned a lot about how IAM affects the whole AWS system. Last thing was 
 how to set up secure CI/CD enviroments and just how useful they could be. 
+
+# Credits
+I want to credit 2 people for helping make this project possible. My friend [Angel](https://www.linkedin.com/in/it-anc/) and [Rishab in Cloud](https://www.youtube.com/@rishabincloud) from Youtube. Without these 2 people I would have had a harder time trying to piece this project together so thank you.
