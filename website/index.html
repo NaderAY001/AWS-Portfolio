@@ -146,7 +146,7 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
         }
-
+/*
         .cloud-image {
            position: absolute;
            top: 100px;
@@ -154,13 +154,24 @@
            transform: translateX(-50%);
            width: 300px;
         }
+*/
+.cloud-container {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
 
+.cloud-image {
+    width: 300px;
+}
         .microsoft-image {
                
-    height: auto;
-    margin-left: 12px;
-    vertical-align: middle;
-           width: 100px;
+            height: auto;
+            margin-left: 12px;
+            vertical-align: middle;
+            width: 100px;
         }
 
         h2 {
@@ -410,6 +421,13 @@
             transition: color 0.3s ease;
         }
 
+        .citations {
+            
+            margin-top: 5px;
+            color: #888;
+            font-size: 0.75rem;
+        }
+
         .contact-item a:hover {
             color: #00ccff;
         }
@@ -506,7 +524,10 @@
     </nav>
 <div class="cloud-container">
     <img class="cloud-image" src="cloud2.png">
+    <span class="citation">(Hiclipart, 2026)</span>
 </div>
+
+
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="label"></div>
@@ -538,7 +559,7 @@
         <h2>Work Experience</h2>
 
         <div class="experience-item">
-            <h3>Datacenter Technician <img class="microsoft-image" src="microsoft1.png"></h3>
+            <h3>Datacenter Technician <img class="microsoft-image" src="microsoft1.png"><span class="citations">(TopPng, 2026)</span></h3>
             <div class="date">Microsoft | July 2026 - Present</div>
             <p>Continuation from my work as an Intern at Microsoft</p>
             <ul>
