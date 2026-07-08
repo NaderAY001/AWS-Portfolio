@@ -147,6 +147,22 @@
             text-transform: uppercase;
         }
 
+        .cloud-image {
+           position: absolute;
+           top: 100px;
+           left: 50%;
+           transform: translateX(-50%);
+           width: 300px;
+        }
+
+        .microsoft-image {
+               
+    height: auto;
+    margin-left: 12px;
+    vertical-align: middle;
+           width: 100px;
+        }
+
         h2 {
             font-size: 3rem;
             margin-bottom: 3rem;
@@ -488,7 +504,9 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-
+<div class="cloud-container">
+    <img class="cloud-image" src="cloud2.png">
+</div>
     <section id="home" class="hero">
         <div class="hero-content">
             <div class="label"></div>
@@ -508,8 +526,9 @@
                 <div class="profile-image"><img class="profile-pic" src="profilepic.jpg" alt="Nader Abi Younes" width="250" height="333"></div>
             </div>
             <div class="about-text">
-                <p>I am passionate about cloud computing and cybersecurity, and I am deeply committed to making the digital world a safer place for everyone. I began my journey at Northwest Vista College studying cybersecurity, later transitioning into cloud computing as my interests evolved. Today, I continue to sharpen my skills by building and maintaining my homelab using Proxmox and a Raspberry Pi 5, constantly experimenting and learning wherever I can.</p>
+                <p>I am passionate about cloud computing and cybersecurity, and I am deeply committed to making the digital world a safer place for everyone. I began my journey at Northwest Vista College studying cybersecurity, later transitioning into cloud computing as my interests evolved. Today, I continue to sharpen my skills by building and maintaining my homelab, building cloud-based projects, and learning how to pentest to build security knowledge. I love to constantly experiment and learn whenever I can.</p>
                 <p>My path into technology started with freeCodeCamp’s HTML course. I fell in love with it immediately and knew I wanted to learn more. What began as basic HTML knowledge quickly grew into something much bigger. From knowing only HTML, I went on to earn my first certification — CompTIA Security+ thanks to Northwest Vista. That achievement gave me the confidence to believe I could succeed in this field, even when I still had so much to learn. Since then, I’ve earned several more certifications and have enjoyed every step of my journey in the field.</p>
+                <p>Currently I am employed at Microsoft as a Datacenter Technician where I support the physical infrastructure that powers global cloud services. I enjoy designing secure cloud environments, automating deployments, understanding how infrastructure operates at scale, and penetration testing for fun. My long-term goal is to design secure, scalable cloud solutions as a Cloud Architect or Cloud Security Architect.</p>
             </div>
         </div>
     </section>
@@ -519,8 +538,24 @@
         <h2>Work Experience</h2>
 
         <div class="experience-item">
+            <h3>Datacenter Technician <img class="microsoft-image" src="microsoft1.png"></h3>
+            <div class="date">Microsoft | July 2026 - Present</div>
+            <p>Continuation from my work as an Intern at Microsoft</p>
+            <ul>
+                <li>Completed breakfix operations and maintenance of physical datacenter infrastructure across large-scale cloud
+                    environments powering global services (Azure, Microsoft 365, Xbox, OneDrive, Exchange, etc.)</li>
+                <li>Assisted and oversaw projects involving the deployments and energizing of racks for new clients</li>
+                <li>Installed, replaced, and troubleshot servers, networking hardware, and structured cabling to ensure high availability and
+                    minimal downtime</li>
+                <li>Executed hardware diagnostics and break/fix procedures for storage devices, compute, and GPU nodes</li>
+                <li>Used ticketing system to complete tasks and provided detailed documentation for my actions and solutions</li>
+                <li>Supported inventory control and asset tracking for high-volume equipment logistics</li> 
+                <li>Ran morning presentations to get my team informed and motivated to start the day</li>
+                <li>Assisted coworkers with difficult tasks and ran quality checks to make sure we keep high availability for our systems</li>
+            </ul>
+            <br>    
             <h3>Datacenter Intern</h3>
-            <div class="date">Microsoft | Feb 2026 - Present</div>
+            <div class="date">Microsoft | Feb 2026 - June 2026</div>
             <p>Kept the world running to achomplish more</p>
             <ul>
                 <li>Completed breakfix operations and maintenance of physical datacenter infrastructure across large-scale cloud
@@ -646,6 +681,20 @@
                     <span class="tech-tag">HTML CSS</span>
                 </div>
             </div>
+
+            <div class="project-card">
+                <h3>AWS Data Analysis Project</h3>
+                <p>Built an end-to-end AWS data analytics pipeline that transformed raw fisheries data into Parquet format using Python, AWS Glue, and Amazon S3, then queried the processed data with Amazon Athena to generate business insights. </p>
+                <div class="tech-stack">
+                    <span class="tech-tag">S3</span>
+                    <span class="tech-tag">Cloud9</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">AWS Glue</span>
+                    <span class="tech-tag">Athena</span>
+                    <span class="tech-tag">Pandas and Pyarrow libraries</span>
+                    <span class="tech-tag">SQL</span>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -656,7 +705,7 @@
         <div class="education-item">
             <h3>Bachelor of Applied Technology in Cloud Computing</h3>
             <div class="date">Northwest Vista College | 2023 - 2026</div>
-            <p>Current GPA: 3.8/4.0. Focused on cloud computing technologies, including virtualized infrastructure, Linux administration, networking, scripting, and cloud security fundamentals. Developed hands-on skills through lab-based coursework and cloud projects emphasizing deployment, monitoring, and system security. Additional Experience in data analytics and machine learning with AWS and python Active member of cloud computing, cybersecurity, and networking clubs.</p>
+            <p>Current GPA: 3.8/4.0. Focused on cloud computing technologies, including virtualized infrastructure, Linux administration, networking, scripting, and cloud security fundamentals. Developed hands-on skills through lab-based coursework and cloud projects emphasizing deployment, monitoring, and system security. Additional Experience in data analytics and machine learning with AWS and Python. Former member of cloud computing, cybersecurity, and networking clubs.</p>
         </div>
 
         <div class="education-item">
